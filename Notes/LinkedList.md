@@ -62,6 +62,7 @@ void print_reverse_linkedlist(Node* temp){
 
 ## 4. Insert at Head
 ![alt text](img/image.png)
+
 **Insert a new node at the beginning of the list**
 
 ```cpp
@@ -78,6 +79,7 @@ void insert_at_head(Node* &head , int val){
 
 ## 5. Insert at Tail (Not Optimized)
 ![alt text](img/image-1.png)
+
 **Insert a new node at the end of the list by traversing to the last node**
 
 ```cpp
@@ -104,6 +106,7 @@ void insert_at_tail(Node* head , int val){
 
 ## 6. Insert at Tail (Optimized with Tail Pointer)
 ![alt text](img/image-2.png)
+
 **Insert a new node at the end using tail pointer**
 
 ```cpp
@@ -127,6 +130,7 @@ void insert_at_tail(Node* head , Node* &tail, int val){
 
 ## 7. Insert at Any Position
 ![alt text](img/image-3.png)
+
 **Insert a new node at a specific position in the list**
 
 ```cpp
@@ -149,7 +153,9 @@ void insert_at_any_position(Node* &head , int pos , int val){
 ---
 
 ## 8. Delete at Head
-![alt text]img/(image-4.png)
+
+![alt text](img/image-4.png)
+
 **Remove the first node from the list**
 
 ```cpp
@@ -166,6 +172,7 @@ void delete_at_head(Node* &head){
 
 ## 9. Delete at Any Position
 ![alt text](img/image-5.png)
+
 **Remove a node at a specific position in the list**
 
 ```cpp
@@ -272,6 +279,7 @@ void print_linked_list_backword(Node* tail){
 
 ## 4. Insert at Head
 ![alt text](img/image-6.png)
+
 **Insert a new node at the beginning of the doubly linked list**
 
 ```cpp
@@ -297,6 +305,7 @@ void insert_at_head(Node* &head , Node* &tail, int val){
 
 ## 5. Insert at Tail
 ![alt text](img/image-7.png)
+
 **Insert a new node at the end of the doubly linked list**
 
 ```cpp
@@ -322,6 +331,7 @@ void insert_at_tail(Node* &head , Node* &tail , int val){
 
 ## 6. Insert at Any Position
 ![alt text](img/image-8.png)
+
 **Insert a new node at a specific position in the doubly linked list**
 
 ```cpp
@@ -370,6 +380,7 @@ void insert_at_any_postion(Node* &head , Node* &tail , int index , int val){
 
 ## 7. Delete at Head
 ![alt text](img/image-9.png)
+
 **Remove the first node from the doubly linked list**
 
 ```cpp
@@ -396,6 +407,7 @@ void delete_at_head(Node* &head, Node* &tail){
 
 ## 8. Delete at Tail
 ![alt text](img/image-11.png)
+
 **Remove the last node from the doubly linked list**
 
 ```cpp
@@ -422,6 +434,7 @@ void delete_at_tail(Node* &head , Node* &tail){
 
 ## 9. Delete at Any Position
 ![alt text](img/image-12.png)
+
 **Remove a node at a specific position in the doubly linked list**
 
 ```cpp
