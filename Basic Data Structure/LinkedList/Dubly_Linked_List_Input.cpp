@@ -155,8 +155,6 @@ int main() {
         }
         insert_at_tail(head , tail , n);
     }
-    
-
 
     print_linked_list_forword(head);
     print_linked_list_backword(tail);
