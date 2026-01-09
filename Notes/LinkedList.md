@@ -220,6 +220,48 @@ int main() {
 
 ---
 
+## 11. Reverse Singly Linked List
+**Reverse the entire linked list by changing the direction of pointers**
+
+```cpp
+void reverse_linkedlist(Node* &head , Node* &tail ,Node* temp){
+    if(temp == NULL){               // base case: empty list
+        return;
+    }
+    if(temp->next == NULL){         // base case: reached last node
+        head = temp;                // last node becomes new head
+        return;
+    }
+    reverse_linkedlist(head ,tail ,temp->next);  // recursive call
+    temp->next->next = temp;        // reverse the pointer
+    temp->next = NULL;              // current node points to NULL
+    tail = temp;                    // first node becomes new tail
+}
+```
+
+**Time Complexity:** O(n)  
+**Space Complexity:** O(n) - due to recursion stack
+
+**How it works:**
+1. Recursively traverse to the last node
+2. Make the last node the new head
+3. Reverse pointers while unwinding from recursion
+4. The original head becomes the new tail
+
+**Usage:**
+```cpp
+Node* head = new Node(10);
+Node* tail = head;
+insert_at_tail(head, tail, 20);
+insert_at_tail(head, tail, 30);
+// Before: 10 -> 20 -> 30
+
+reverse_linkedlist(head, tail, head);
+// After: 30 -> 20 -> 10
+```
+
+---
+
 # Doubly Linked List
 
 ## 1. Node Structure
@@ -504,6 +546,68 @@ int main() {
     print_linked_list_forword(head);
     print_linked_list_backword(tail);
     return 0;
+}
+```
+
+---
+
+## 11. Reverse Doubly Linked List
+**Reverse the doubly linked list by swapping values from both ends**
+
+```cpp
+void reverse_linked_list(Node* head, Node* tail){
+    if(head == NULL) return;        // if list is empty
+    
+    Node* i = head;                 // pointer starting from head
+    Node* j = tail;                 // pointer starting from tail
+    
+    while(i != j && i->prev != j){  // until pointers meet or cross
+        swap(i->val, j->val);       // swap values
+        i = i->next;                // move forward from head
+        j = j->prev;                // move backward from tail
+    }
+}
+```
+
+**Time Complexity:** O(n/2) = O(n)  
+**Space Complexity:** O(1) - no extra space needed
+
+**How it works:**
+1. Use two pointers: one from head, one from tail
+2. Swap values at both ends
+3. Move pointers towards center
+4. Stop when pointers meet or cross
+
+**Usage:**
+```cpp
+Node* head = NULL;
+Node* tail = NULL;
+insert_at_tail(head, tail, 10);
+insert_at_tail(head, tail, 20);
+insert_at_tail(head, tail, 30);
+// Before: 10 <-> 20 <-> 30
+
+reverse_linked_list(head, tail);
+// After: 30 <-> 20 <-> 10
+```
+
+**Alternative: Reverse by Changing Pointers**
+```cpp
+void reverse_by_pointers(Node* &head, Node* &tail){
+    Node* current = head;
+    Node* temp = NULL;
+    
+    while(current != NULL){
+        temp = current->prev;           // save prev pointer
+        current->prev = current->next;  // swap prev and next
+        current->next = temp;
+        current = current->prev;        // move to next node
+    }
+    
+    // Swap head and tail
+    temp = head;
+    head = tail;
+    tail = temp;
 }
 ```
 
