@@ -1,0 +1,95 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+    public:
+    int val;
+    Node* left;
+    Node* right;
+
+    Node(int val){
+        this->val = val;
+        this->left = NULL;
+        this->right = NULL;
+    }
+};
+
+void preorder(Node* root){
+    if(root == NULL){
+        return;
+    }
+
+    cout << root->val << " ";
+    preorder(root->left);
+    preorder(root->right);
+}
+
+void inorder(Node* root){
+    if(root == NULL){
+        return;
+    }
+
+    inorder(root->left);
+    cout << root->val << " ";
+    inorder(root->right);
+}
+void postorder(Node* root){
+    if(root == NULL){
+        return;
+    }
+
+    postorder(root->left);
+    postorder(root->right);
+    cout << root->val << " ";
+}
+
+void level_order(Node* root){
+    if(root == NULL) return;
+    queue<Node*> q;
+    q.push(root);
+
+    while(!q.empty()){
+        // 1. Bring out front
+        Node* front = q.front();      
+        q.pop();      
+      
+        // 2. Work with Node      
+        cout << front->val << " ";      
+      
+        // Push Children in queue      
+        if(front->left){      
+            q.push(front->left);      
+        }      
+        if(front->right){      
+            q.push(front->right);      
+        }
+    }
+}
+
+int count_node_using_recursion(Node* root){
+    if(root == NULL){
+        return 0;
+    }
+
+    int l = count_node_using_recursion(root->left);
+    int r = count_node_using_recursion(root->right);
+    return l+r+1;
+}
+
+int main() {
+    Node* root = new Node(10);
+    Node* a = new Node(20);
+    Node* b = new Node(30);
+    Node* c = new Node(40);
+    Node* d = new Node(50);
+    Node* e = new Node(60);
+
+    root->left = a;
+    root->right = b;
+    a->left = c;
+    b->left = d;
+    b->right = e;
+
+    level_order(root);
+    return 0;
+}
