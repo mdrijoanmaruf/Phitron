@@ -48,7 +48,7 @@ void level_order(Node* root){
     queue<Node*> q;
     q.push(root);
 
-    while(!q.empty()){
+    while(!q.empty()){ 
         // 1. Bring out front
         Node* front = q.front();
         q.pop();
